@@ -2,10 +2,9 @@ import { useForm } from "react-hook-form";
 import Icon1 from "../assets/FormIcon1.png";
 import { Alert, styled, TextField } from "@mui/material";
 import { usersInstance } from "../api/usersInstance";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
 export default function Form() {
-  const [todos, setTodos] = useState([]);
   const {
     register,
     handleSubmit,
@@ -15,7 +14,6 @@ export default function Form() {
   const postUsers = async (formValue) => {
     try {
       await usersInstance.post("/users", formValue);
-      getUsers();
     } catch (error) {
       console.error(error);
     }
